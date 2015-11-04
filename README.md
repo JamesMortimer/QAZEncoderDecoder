@@ -10,4 +10,4 @@ James Mortimer
 
 ## License
 
-No license yet, owner retains all rights, contact owner for use.
+MIT
