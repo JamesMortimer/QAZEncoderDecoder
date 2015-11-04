@@ -1,0 +1,80 @@
+<html>
+<head>
+<script language="javascript">
+<!--
+    var r2q = {A:"A1",B:"Z5",C:"Z3",D:"A3",E:"Q3",F:"A4",G:"A5",H:"A6",I:"Q8",J:"A7",K:"A8",L:"A9",M:"Z7",N:"Z6",O:"Q9",P:"Q10",Q:"Q1",R:"Q4",S:"A2",T:"Q5",U:"Q7",V:"Z4",W:"Q2",X:"Z2",Y:"Q6",Z:"Z1"};
+    var q2r = {A1:"A",Z5:"B",Z3:"C",A3:"D",Q3:"E",A4:"F",A5:"G",A6:"H",Q8:"I",A7:"J",A8:"K",A9:"L",Z7:"M",Z6:"N",Q9:"O",Q10:"P",Q1:"Q",Q4:"R",A2:"S",Q5:"T",Q7:"U",Z4:"V",Q2:"W",Z2:"X",Q6:"Y",Z1:"Z"};
+    function convertRomanToQaz(f1) {
+      f1.romanText.value = f1.romanText.value.toUpperCase();
+      charList = f1.romanText.value.split(/([A-Z])/);
+      encodedCharList = charList.map(function(charItem){
+        if (r2q.hasOwnProperty(charItem)) {
+          newItem = r2q[charItem];
+        } else {
+          newItem = charItem; 
+        };
+        return newItem; 
+      });
+      rval = encodedCharList.join("");
+      f1.qazResult.value=rval;
+   }
+   function convertQazToRoman(f1) {
+      f1.qazText.value = f1.qazText.value.toUpperCase();
+      charList = f1.qazText.value.split(/([A-Z][0-9]+)/);
+      encodedCharList = charList.map(function(charItem){
+        if (q2r.hasOwnProperty(charItem)) {
+          newItem = q2r[charItem];
+        } else {
+          newItem = charItem; 
+        };
+        return newItem; 
+      });
+      rval = encodedCharList.join("");
+      f1.romanResult.value = rval;
+   }
+      
+//-->
+</script>
+</head>
+<body>
+<h2 align=center>Roman Alphabet to QAZ Notation</h2>
+<div align=center>
+Convert text in Roman Alphabet (e.g. QJB) to QAZ notation (e.g. Q1A7Z5).
+</br>
+</br>
+<form>Roman Alphabet</br><textarea name="romanText" cols="80" rows="2">Put your text to QAZ encode here</textarea>
+</br>
+</br>
+<input type="button" value="convert" onClick="convertRomanToQaz(this.form)">
+</br>
+</br>
+QAZ Notation</br><textarea name="qazResult" cols="80" rows="4"></textarea>
+</form>
+</div>
+</br>
+<h2 align=center>QAZ notation to Roman Alphabet</h2>
+<div align=center>
+Convert text in QAZ notation (e.g. Q1A7Z5) to Roman Alphabet (e.g. QJB).
+</br>
+</br>
+<form>
+QAZ Notation</br><textarea name="qazText" cols="80" rows="6">
+Q8Q5’A2 A5Q9Q8Z6A5 Q5Q9 Z5Q3 A1 A6Q8Q5!
+A5Q9A2 Q8Q5!
+Q6Q9Q7 A5Q9Q5 Q8Q5!
+Q8 A7Q9Q5 Q8Q5 Q5Q9Q9!
+A5Q9Q5*
+Z7Q6 Z5A1A3
+</textarea>
+</br>
+</br>
+<input type="button" value="convert" onClick="convertQazToRoman(this.form)">
+</br>
+</br>
+Roman Alphabet</br><textarea name="romanResult" cols="80" rows="6"></textarea>
+</form>
+</div>
+</br>
+</div>
+</body>
+</html>
